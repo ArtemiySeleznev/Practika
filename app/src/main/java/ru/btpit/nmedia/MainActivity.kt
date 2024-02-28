@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import ru.btpit.nmedia.databinding.ActivityMainBinding
+import ru.btpit.nmedia.databinding.CardPostBinding
 import ru.btpit.nmedia.viewModel.PostViewModel
 
 
@@ -21,15 +22,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val viewModel: PostViewModel by viewModels()
-        viewModel.data.observe(this) {post: Post ->
-            with(binding) {
+        viewModel.data.observe(this) {posts ->
+            binding.container.removeAllViews()
+            posts.map { post ->
+                CardPostBinding.inflate(layoutInflater, binding.container,true).apply {
                 author.text = post.author
                 published.text = post.published
                 content.text = post.content
                 imageView4.setImageResource(
                     if (post.likedByMe) R.drawable.serd else R.drawable.hearth_svgrepo_com
+
                 )
                 textlike?.text = post.likes.toString()
+
                 if (post.likes >= 1000) {
                     textlike.text = "${post.likes / 1000}.${post.likes % 1000 / 100}K"
                 } else {
@@ -66,26 +71,32 @@ class MainActivity : AppCompatActivity() {
                 else  {
                     textshare.text
                 }
+               imageView4.setOnClickListener{
+                   viewModel.likeById(post.id)
 
+               }
+                    imageView5.setOnClickListener{
+                        viewModel.shareById(post.id)
+
+                    }
+            }.root
+
+
+            }
             }
 
 
-                }
-        binding.imageView4.setOnClickListener {
-            viewModel.like()
+
+        }
+
 
 
         }
-        binding.imageView5.setOnClickListener {
-            viewModel.share()
-
-
-        }
-            }
 
 
 
-    }
+
+
 
 
 
@@ -107,6 +118,8 @@ class MainActivity : AppCompatActivity() {
         var likedByMe: Boolean = false,
         val shareByMe: Boolean = false
     )
+
+
 
 
 
