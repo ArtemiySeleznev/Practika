@@ -5,5 +5,8 @@
     <string name="Btp">Борисоглебский техникум... </string>
     <string name="gfd">gfd</string>
     <string name="byty">Борисоглебский техникум...</string>
+    <string name="menu_edit">Изменить</string>
+    <string name="menu_remove">Удалить\n</string>
+    <string name="post_text">Введите текст\n</string>
 
 </resources>
