@@ -4,14 +4,8 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import ru.btpit.nmedia.databinding.ActivityMainBinding
-import ru.btpit.nmedia.databinding.CardPostBinding
 import ru.btpit.nmedia.viewModel.PostViewModel
-
-
-
-
-
-
+import ru.netology.nmedia.adapter.PostsAdapter
 
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +16,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val viewModel: PostViewModel by viewModels()
+        val adapter = PostsAdapter ({viewModel.likeById(it.id)},
+            {viewModel.shareById(it.id)})
+
+
+
+        binding.list.adapter = adapter
+        viewModel.data.observe(this) { posts ->
+            adapter.submitList(posts)
+        }
+    }
+        /*val viewModel: PostViewModel by viewModels()
         viewModel.data.observe(this) {posts ->
             binding.container.removeAllViews()
             posts.map { post ->
@@ -83,7 +88,7 @@ class MainActivity : AppCompatActivity() {
 
 
             }
-            }
+            }*/
 
 
 
@@ -91,7 +96,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        }
+
 
 
 
