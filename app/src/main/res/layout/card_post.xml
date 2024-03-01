@@ -60,7 +60,7 @@
         android:text="dadadad"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.0" />
@@ -79,86 +79,51 @@
         app:layout_constraintTop_toTopOf="@+id/content"
         app:layout_constraintVertical_bias="1.0" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="32dp"
-        android:layout_height="31dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginBottom="213dp"
-        android:clickable="true"
-        android:contentDescription="TODO"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/like"
+        style="@style/like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="204dp"
+        android:background="#100707"
+        android:checkable="true"
+        android:textColor="#040303"
+        app:backgroundTint="#FFFFFF"
+        app:icon="@drawable/like"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textlike"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/content"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/hearth_svgrepo_com"
-        tools:ignore="TouchTargetSizeCheck" />
+        tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/textlike"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/share"
+        style="@style/Widget.AppTheme.IconButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text= ""
-        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toTopOf="@+id/imageView4"
-        app:layout_constraintVertical_bias="0.416" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="25dp"
-        android:layout_height="29dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="212dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textshare"
-        app:srcCompat="@drawable/share_svgrepo_com" />
-
-    <TextView
-        android:id="@+id/textshare"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="100dp"
-        android:layout_marginBottom="220dp"
-        android:text="0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView6" />
-
-    <TextView
-        android:id="@+id/prosmtr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="31dp"
-        android:text="65"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.09"
-        app:layout_constraintStart_toEndOf="@+id/imageView6"
-        app:layout_constraintTop_toTopOf="@+id/imageView6" />
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="29dp"
-        android:layout_height="29dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginBottom="216dp"
+        android:layout_marginBottom="204dp"
+        android:background="#100707"
+        android:checkable="true"
+        android:textColor="#040303"
+        app:backgroundTint="#FFFFFF"
+        app:icon="@drawable/share_svgrepo_com"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/content"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/eye" />
+        app:layout_constraintHorizontal_bias="0.405"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
 
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="21dp"
-        android:layout_height="29dp"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/menu"
+        style="@style/Widget.AppTheme.IconButton"
+        android:layout_width="48dp"
+
+
+        android:layout_height="48dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="628dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="@string/Btp"
+        app:icon="@drawable/hjkhkjk"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/hjkhkjk" />
-
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

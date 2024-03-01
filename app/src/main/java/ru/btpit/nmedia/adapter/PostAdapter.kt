@@ -49,11 +49,13 @@ class PostViewHolder(
             author.text = post.author
             published.text = post.published
             content.text = post.content
-            imageView4.setImageResource(
+           /* imageView4.setImageResource(
                 if (post.likedByMe) R.drawable.serd else R.drawable.hearth_svgrepo_com
 
-            )
-            imageView9.setOnClickListener{
+            )*/
+            like.isChecked = post.likedByMe
+            like.text = "${post.likes}"
+            menu.setOnClickListener{
                 PopupMenu(it.context, it).apply {
                     inflate(R.menu.options_post)
                     setOnMenuItemClickListener { item ->
@@ -76,50 +78,50 @@ class PostViewHolder(
 
 
 
-            textlike?.text = post.likes.toString()
+            like.text = post.likes.toString()
 
             if (post.likes >= 1000) {
-                textlike.text = "${post.likes / 1000}.${post.likes % 1000 / 100}K"
+                like.text = "${post.likes / 1000}.${post.likes % 1000 / 100}K"
             } else {
-                textlike.text
+                like.text
             }
             if (post.likes>= 10000){
-                textlike.text = "${post.likes / 1000}.${post.likes % 1000 / 100}K"
+                like.text = "${post.likes / 1000}.${post.likes % 1000 / 100}K"
             }
             else  {
-                textlike.text
+                like.text
             }
             if (post.likes>= 1000000){
-                textlike.text = "${post.likes / 1000000}.${post.likes % 1000 / 100}М"
+                like.text = "${post.likes / 1000000}.${post.likes % 1000 / 100}М"
             }
             else  {
-                textlike.text
+                like.text
             }
 
-            imageView4.setOnClickListener{
+            like.setOnClickListener{
                onInteractionListener.onLike(post)
             }
 
 
-            textshare.text = post.share.toString()
+            share.text = post.share.toString()
             if (post.share >= 1000) {
-                textshare.text = "${post.share / 1000}.${post.share % 1000 / 100}K"
+                share.text = "${post.share / 1000}.${post.share % 1000 / 100}K"
             } else  {
-                textshare.text
+                share.text
             }
             if (post.share >= 10000){
-                textshare.text = "${post.share / 1000}.${post.share % 1000 / 100}K"
+                share.text = "${post.share / 1000}.${post.share % 1000 / 100}K"
             }
             else  {
-                textshare.text
+                share.text
             }
             if (post.share>= 1000000){
-                textshare.text = "${post.share / 1000000}.${post.share % 1000 / 100}М"
+                share.text = "${post.share / 1000000}.${post.share % 1000 / 100}М"
             }
             else  {
-                textshare.text
+                share.text
             }
-            imageView5.setOnClickListener{
+            share.setOnClickListener{
               onInteractionListener.onShare(post)
             }
 
