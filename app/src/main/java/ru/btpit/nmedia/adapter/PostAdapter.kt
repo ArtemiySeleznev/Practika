@@ -7,7 +7,7 @@ import android.widget.PopupMenu
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import ru.btpit.nmedia.Post
+import ru.btpit.nmedia.activity.Post
 import ru.btpit.nmedia.R
 import ru.btpit.nmedia.databinding.CardPostBinding
 

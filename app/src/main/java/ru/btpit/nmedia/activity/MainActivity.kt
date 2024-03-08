@@ -1,9 +1,11 @@
-package ru.btpit.nmedia
+package ru.btpit.nmedia.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import ru.btpit.nmedia.R
 import ru.btpit.nmedia.databinding.ActivityMainBinding
 import ru.btpit.nmedia.util.AndroidUtils
 import ru.btpit.nmedia.viewModel.PostViewModel
@@ -30,10 +32,17 @@ class MainActivity : AppCompatActivity() {
                 viewModel.likeById(post.id)
             }
             override fun onShare(post: Post) {
-                viewModel.shareById(post.id)
+                val intent = Intent().apply {
+                    action = Intent.ACTION_SEND
+                    putExtra(Intent.EXTRA_TEXT, post.content)
+                    type = "text/plain"
             }
-        })
+            }
 
+        })
+        val shareIntent =
+            Intent.createChooser(intent, getString(R.string.chooser_share_post))
+        startActivity(shareIntent)
 
 
         binding.list.adapter = adapter
@@ -66,6 +75,12 @@ class MainActivity : AppCompatActivity() {
                 requestFocus()
                 setText(post.content)
             }
+
+        }
+        val newPostLauncher = registerForActivityResult(NewPostResultContract()) { result ->
+            result ?: return@registerForActivityResult
+            viewModel.changeContent(result)
+            viewModel.save()
 
         }
     }

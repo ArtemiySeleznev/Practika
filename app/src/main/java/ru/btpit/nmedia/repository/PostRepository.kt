@@ -1,7 +1,7 @@
 package ru.btpit.nmedia.repository
 
 import androidx.lifecycle.LiveData
-import ru.btpit.nmedia.Post
+import ru.btpit.nmedia.activity.Post
 
 interface PostRepository {
    fun getAll(): LiveData<List<Post>>

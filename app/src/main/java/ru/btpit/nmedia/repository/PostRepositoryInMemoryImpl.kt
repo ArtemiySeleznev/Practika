@@ -2,7 +2,7 @@ package ru.btpit.nmedia.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import ru.btpit.nmedia.Post
+import ru.btpit.nmedia.activity.Post
 
 
 class PostRepositoryInMemoryImpl : PostRepository {

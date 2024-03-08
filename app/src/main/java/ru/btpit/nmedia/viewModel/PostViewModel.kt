@@ -2,7 +2,7 @@ package ru.btpit.nmedia.viewModel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import ru.btpit.nmedia.Post
+import ru.btpit.nmedia.activity.Post
 import ru.btpit.nmedia.repository.PostRepository
 import ru.btpit.nmedia.repository.PostRepositoryInMemoryImpl
 private val empty = Post(
