@@ -37,12 +37,13 @@ class MainActivity : AppCompatActivity() {
                     putExtra(Intent.EXTRA_TEXT, post.content)
                     type = "text/plain"
             }
+                val shareIntent =
+                    Intent.createChooser(intent, getString(R.string.chooser_share_post))
+                startActivity(shareIntent)
             }
 
         })
-        val shareIntent =
-            Intent.createChooser(intent, getString(R.string.chooser_share_post))
-        startActivity(shareIntent)
+
 
 
         binding.list.adapter = adapter

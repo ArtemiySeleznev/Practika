@@ -1,5 +1,7 @@
 package ru.btpit.nmedia.viewModel
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import ru.btpit.nmedia.activity.Post
@@ -15,7 +17,7 @@ private val empty = Post(
     prosmotr = 0,
     likedByMe = false,
 )
-class PostViewModel: ViewModel() {
+class PostViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: PostRepository = PostRepositoryInMemoryImpl()
     val data = repository.getAll()
     val edited = MutableLiveData(empty)
