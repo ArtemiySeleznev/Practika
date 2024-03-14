@@ -1,5 +1,6 @@
 package ru.btpit.nmedia.repository
 
+import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import ru.btpit.nmedia.activity.Post
@@ -30,7 +31,7 @@ private var nextId = 1L
         likedByMe = false,
         shareByMe = false
     )
-    )
+    ).reversed()
     private val data = MutableLiveData(posts)
     override fun getAll(): LiveData<List<Post>> = data
     override fun likeById(id: Long) {

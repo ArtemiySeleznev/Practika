@@ -26,11 +26,11 @@ class PostRepositoryFileImpl (
                 data.value = posts
             }
         } else {
-            // если нет, записываем пустой массив
+
             sync()
         }
     }
-    // для презентации убрали пустые строки
+
     override fun getAll(): LiveData<List<Post>> = data
 
     override fun save(post: Post) {

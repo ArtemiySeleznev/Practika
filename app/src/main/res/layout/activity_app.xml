@@ -3,7 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/nav_host_fragment"
+    android:name="androidx.navigation.fragment.NavHostFragment"
+    app:navGraph="@navigation/nav_main"
     android:layout_height="match_parent"
-    tools:context=".activity.IntentHandlerActivity">
+    app:defaultNavHost="true"
+    tools:context=".activity.AppActivity">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

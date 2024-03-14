@@ -11,10 +11,7 @@ import ru.btpit.nmedia.activity.Post
 import ru.btpit.nmedia.R
 import ru.btpit.nmedia.databinding.CardPostBinding
 
-/*
-typealias OnLikeListener = (post: Post) -> Unit
-typealias OnShareListener = (post: Post) -> Unit
-typealias OnRemoveListener = (post: Post) -> Unit*/
+
 
 interface OnInteractionListener {
     fun onLike(post: Post) {}
