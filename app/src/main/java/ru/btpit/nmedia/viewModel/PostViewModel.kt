@@ -4,8 +4,11 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import ru.btpit.nmedia.activity.Post
+import ru.btpit.nmedia.db.AppDb
 import ru.btpit.nmedia.repository.PostRepository
 import ru.btpit.nmedia.repository.PostRepositoryInMemoryImpl
+import ru.btpit.nmedia.repository.PostRepositorySQLiteImpl
+
 private val empty = Post(
     id = 0,
     author = "",
@@ -17,7 +20,9 @@ private val empty = Post(
     likedByMe = false,
 )
 class PostViewModel(application: Application) : AndroidViewModel(application) {
-    private val repository: PostRepository = PostRepositoryInMemoryImpl()
+    private val repository: PostRepository = PostRepositorySQLiteImpl(
+        AppDb.getInstance(application).postDao
+    )
     val data = repository.getAll()
     val edited = MutableLiveData(empty)
     fun likeById(id: Long) = repository.likeById(id)
